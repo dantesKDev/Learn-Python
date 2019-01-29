@@ -9,7 +9,8 @@
 </style>
 <br>
 {% for Categorie in categories %}
-  {% if Categorie.id != 1 and Categorie.id != 2 %}
+
+  {% if Categorie.parentId == 2 %}
 
     <article style="position: relative; width: 800px;
   height: 450px;">
@@ -33,8 +34,8 @@
 
     <hr style="background-color:white;">
     <br>
+    {% endif %}
 
-  {% endif %}
 {% endfor %}
 
 {% endblock %}

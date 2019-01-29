@@ -17,10 +17,16 @@ class WebSiteController extends AbstractController
 
       $repo = $this->getDoctrine()->getRepository(Categorie::class);
       $categories = $repo->findAll();
+      $repo = $this->getDoctrine()->getRepository(Post::class);
+      $Posts = $repo->findAll();
+      $repo = $this->getDoctrine()->getRepository(Media::class);
+      $Medias = $repo->findAll();
       // $categories = $categorieGenerator->getCategorieList();
 
       $params = array(
         'categories' => $categories,
+        'posts' => $posts,
+        'medias' => $medias,
         'controller_name' => 'WebSiteController'
       );
       return $this->render('web_site/index.html.twig', $params);
@@ -28,17 +34,29 @@ class WebSiteController extends AbstractController
     }
 
     /**
-     * @Route("/Initiation/{id}", name="initiation")
+     * @Route("/Initiation/", name="initiation")
      */
-    public function debutAction($id)
+    public function debutAction()
     {
-      $parent_id = $id;
+
       $repo = $this->getDoctrine()->getRepository(Categorie::class);
-      $categories = $repo->find($parent_id);
-      // $categories = $categorieGenerator->getCategorieList();
+      $categories = $repo->findAll();
+      $repo = $this->getDoctrine()->getRepository(Post::class);
+      $Posts = $repo->findAll();
+      $repo = $this->getDoctrine()->getRepository(Media::class);
+      $Medias = $repo->findAll();
+
+      // $categories = $repo->findBy(
+      //     array('parent_id' => $id)
+      // );
+
+            // $categories = $categorieGenerator->getCategorieList();
+      // echo(var_dump($categories));
 
       $params = array(
         'categories' => $categories,
+        'posts' => $posts,
+        'medias' => $medias,
         'controller_name' => 'WebSiteController'
       );
       return $this->render('web_site/init.html.twig', $params);
@@ -47,20 +65,19 @@ class WebSiteController extends AbstractController
 
 
     /**
-     * @Route("/Perfectionnement/{id}", name="perfect")
+     * @Route("/Perfectionnement/", name="perfect")
      */
-    public function debutAction($id)
+    public function perfectAction()
     {
-      $parent_id = $id;
       $repo = $this->getDoctrine()->getRepository(Categorie::class);
-      $categories = $repo->find($parent_id);
+      $categories = $repo->findAll();
       // $categories = $categorieGenerator->getCategorieList();
 
       $params = array(
         'categories' => $categories,
         'controller_name' => 'WebSiteController'
       );
-      return $this->render('web_site/index.html.twig', $params);
+      return $this->render('web_site/perfect.html.twig', $params);
 
     }
 
