@@ -24,7 +24,7 @@ class Categorie
     private $posts;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $parent_id;
 

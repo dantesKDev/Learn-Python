@@ -8,13 +8,17 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+{% for Categorie in categories %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'src/Controller/WebSiteController.php'|file_link(0) }}">src/Controller/WebSiteController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'templates/web_site/index.html.twig'|file_link(0) }}">templates/web_site/index.html.twig</a></code></li>
-    </ul>
-</div>
+<article>
+  <h1>Categorie {{ Categorie.id }}</h1>
+  <h2>
+    <div class="content">
+        {{ Categorie.num }}
+    </div>
+  </h2>
+</article>
+
+{% endfor %}
+
 {% endblock %}
