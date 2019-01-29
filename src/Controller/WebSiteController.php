@@ -26,4 +26,60 @@ class WebSiteController extends AbstractController
       return $this->render('web_site/index.html.twig', $params);
 
     }
+
+    /**
+     * @Route("/Debutant/", name="debut")
+     */
+    public function index(CategorieGenerator $categorieGenerator)
+    {
+
+      $repo = $this->getDoctrine()->getRepository(Categorie::class);
+      $categories = $repo->findAll();
+      // $categories = $categorieGenerator->getCategorieList();
+
+      $params = array(
+        'categories' => $categories,
+        'controller_name' => 'WebSiteController'
+      );
+      return $this->render('web_site/index.html.twig', $params);
+
+    }
+
+
+    /**
+     * @Route("/Intermediaire/", name="inter")
+     */
+    public function index(CategorieGenerator $categorieGenerator)
+    {
+
+      $repo = $this->getDoctrine()->getRepository(Categorie::class);
+      $categories = $repo->findAll();
+      // $categories = $categorieGenerator->getCategorieList();
+
+      $params = array(
+        'categories' => $categories,
+        'controller_name' => 'WebSiteController'
+      );
+      return $this->render('web_site/index.html.twig', $params);
+
+    }
+
+
+    /**
+     * @Route("/Avance/", name="Avan")
+     */
+    public function index(CategorieGenerator $categorieGenerator)
+    {
+
+      $repo = $this->getDoctrine()->getRepository(Categorie::class);
+      $categories = $repo->findAll();
+      // $categories = $categorieGenerator->getCategorieList();
+
+      $params = array(
+        'categories' => $categories,
+        'controller_name' => 'WebSiteController'
+      );
+      return $this->render('web_site/index.html.twig', $params);
+
+    }
 }
