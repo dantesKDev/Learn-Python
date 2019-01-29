@@ -17,16 +17,11 @@ class WebSiteController extends AbstractController
 
       $repo = $this->getDoctrine()->getRepository(Categorie::class);
       $categories = $repo->findAll();
-      $repo = $this->getDoctrine()->getRepository(Post::class);
-      $Posts = $repo->findAll();
-      $repo = $this->getDoctrine()->getRepository(Media::class);
-      $Medias = $repo->findAll();
+
       // $categories = $categorieGenerator->getCategorieList();
 
       $params = array(
         'categories' => $categories,
-        'posts' => $posts,
-        'medias' => $medias,
         'controller_name' => 'WebSiteController'
       );
       return $this->render('web_site/index.html.twig', $params);
@@ -41,10 +36,7 @@ class WebSiteController extends AbstractController
 
       $repo = $this->getDoctrine()->getRepository(Categorie::class);
       $categories = $repo->findAll();
-      $repo = $this->getDoctrine()->getRepository(Post::class);
-      $Posts = $repo->findAll();
-      $repo = $this->getDoctrine()->getRepository(Media::class);
-      $Medias = $repo->findAll();
+
 
       // $categories = $repo->findBy(
       //     array('parent_id' => $id)
@@ -55,8 +47,6 @@ class WebSiteController extends AbstractController
 
       $params = array(
         'categories' => $categories,
-        'posts' => $posts,
-        'medias' => $medias,
         'controller_name' => 'WebSiteController'
       );
       return $this->render('web_site/init.html.twig', $params);
